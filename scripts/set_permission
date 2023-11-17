@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo ">>> change owner to ubuntu -----------"
+chown -R ubuntu /home/ubuntu/hello-flask
+
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+ls -l /home/ubuntu/hello-flask
