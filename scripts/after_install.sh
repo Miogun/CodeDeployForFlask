@@ -1,19 +1,21 @@
 #!/bin/bash
 
+cd /var/www/html
 
-cd   /home/ubuntu/hello-flask
+echo ">>> make build directory ***********************"
+mkdir build
 
+echo ">>> install node modules ***********************"
+npm install
 
-echo ">>> pip install ----------------------"
-pip install -r requirements.txt
+echo ">>> build project  *****************************"
+npm run build
 
+echo ">>> copy build results to web root directory ***"
+mv -f ./build/* ./
 
-echo ">>> remove template files ------------"
-rm -rf appspec.yml requirements.txt
+echo ">>> remove template files & directories ********"
+rm -rf build src scripts
 
-
-echo ">>> change owner to ubuntu -----------"
-chown -R ubuntu /home/ubuntu/hello-flask
-
-echo ">>> run app --------------------------"
-python3 app.py
+echo '>>> change owner to ubuntu *********************'
+chown -R ubuntu /var/www/html
